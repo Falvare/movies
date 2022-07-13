@@ -6,6 +6,7 @@ urlpatterns = [
     path('add-movie/', addMovie, name='add movie'),
     path('add-character/', addCharacter, name='add character'),
     path('genres/', genreList, name='genres'),
+    path('/', movieList, name='movies'),
     path('movies/', movieList, name='movies'),
     path('characters/', characterList, name='characters'),
 ]
