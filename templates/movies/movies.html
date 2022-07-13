@@ -1,7 +1,7 @@
 {% if movies %}
     {% for movie in movies %}
         <h1>{{movie.title}}</h1>
-        <h2>{{movie.genre}}</h2>
+        <h2>{{movie.genres}}</h2>
     {% endfor %}
 {% else %}
     <h1>There are no movies yet</h1>
