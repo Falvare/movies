@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 def register(requests):
@@ -12,3 +13,7 @@ def register(requests):
         form = RegistrationForm()
     
     return render('users/register.html', context={'form':form})
+
+class Login(LoginView):
+    template_name = 'users/login.html'
+    success_url = '/characters'
