@@ -8,7 +8,7 @@ def addGenre(requests):
         form = GenreForm(requests.POST)
         if form.is_valid():
             form.save()
-            return redirect('/Genres')
+            return redirect('/genres')
     else:
         form = GenreForm()
 
@@ -19,7 +19,7 @@ def addMovie(requests):
         form = MovieForm(requests.POST)
         if form.is_valid():
             form.save()
-            return redirect('/Movies')
+            return redirect('/movies')
     else:
         form = MovieForm()
 
@@ -30,7 +30,7 @@ def addCharacter(requests):
         form = CharacterForm(requests.POST)
         if form.is_valid():
             form.save()
-            return redirect('/Genres')
+            return redirect('/characters')
     else:
         form = CharacterForm()
 
