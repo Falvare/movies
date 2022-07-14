@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
+from movies_app.models import Movie, Character
 
 # Create your views here.
 def register(requests):
@@ -17,3 +19,7 @@ def register(requests):
 class Login(LoginView):
     template_name = 'users/login.html'
     success_url = '/characters'
+
+def profile(requests):
+    user = User.objects.get(username=requests.user.username)
+    return render(requests, 'users/profile.html', context={'user':user})
