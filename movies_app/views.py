@@ -21,7 +21,9 @@ def addMovie(requests):
     if requests.method == 'POST':
         form = MovieForm(requests.POST)
         if form.is_valid():
-            form.save()
+            movie = form.save(commit=False)
+            movie.added_by = requests.user
+            movie.save()
             return redirect('/movies')
     else:
         form = MovieForm()
@@ -33,7 +35,9 @@ def addCharacter(requests):
     if requests.method == 'POST':
         form = CharacterForm(requests.POST)
         if form.is_valid():
-            form.save()
+            character = form.save(commit=False)
+            character.added_by = requests.user
+            character.save()
             return redirect('/characters')
     else:
         form = CharacterForm()
