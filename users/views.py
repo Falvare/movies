@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
 from .forms import RegistrationForm
 from django.contrib.auth.views import LoginView
@@ -22,4 +23,12 @@ class Login(LoginView):
 
 def profile(requests):
     user = User.objects.get(username=requests.user.username)
-    return render(requests, 'users/profile.html', context={'user':user})
+    movies = Movie.objects.filter(added_by=user)
+    characters = Character.objects.filter(added_by=requests.user.id)
+
+    context = {
+        'user':user,
+        'movies':movies,
+        'characters':characters
+    }
+    return render(requests, 'users/profile.html', context=context)
