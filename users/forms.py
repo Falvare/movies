@@ -4,4 +4,4 @@ from django.contrib.auth.models import User
 class RegistrationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'password']
+        fields = ['username', 'first_name', 'last_name', 'password1', 'password2']
