@@ -9,7 +9,7 @@
 {% if movies %}
     {% for movie in movies %}
         <h1>{{movie.title}}</h1>
-        <h2>{{movie.genres}}</h2>
+        <a href={% url 'movie details' movie.id %}>View details</a>
     {% endfor %}
 {% else %}
     <h1>There are no movies yet</h1>
