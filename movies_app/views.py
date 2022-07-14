@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import GenreForm, MovieForm, CharacterForm
 from .models import Character, Movie, Genre
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def addGenre(requests):
     if requests.method == 'POST':
         form = GenreForm(requests.POST)
@@ -14,6 +16,7 @@ def addGenre(requests):
 
     return render(requests, 'movies/add_genre.html', context={'form':form})
 
+@login_required
 def addMovie(requests):
     if requests.method == 'POST':
         form = MovieForm(requests.POST)
@@ -25,6 +28,7 @@ def addMovie(requests):
 
     return render(requests, 'movies/add_genre.html', context={'form':form})
 
+@login_required
 def addCharacter(requests):
     if requests.method == 'POST':
         form = CharacterForm(requests.POST)
