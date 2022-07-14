@@ -1,6 +1,13 @@
-<form method=POST>
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register">
-    <a href={% url 'login' %}>Login</a>
-</form>
+{% extends 'index.html' %}
+
+{% block title %} profile {% endblock title %}
+
+{% block content %}
+    <form method=POST>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register">
+        <a href={% url 'login' %}>Login</a>
+    </form>
+{% endblock content %}
+
