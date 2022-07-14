@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %} {% endblock title %}
+
+{% block content %}
+
+<h1>{{movie}}</h1>
+<h2>genre(s):</h2>
+{% for genre in movie.genre.all %}
+{{genre}}/
+{% endfor %}
+<hr>
+
+<h1>Characters:</h1>
+{% if characters %}
+
+    {% for character in characters %}
+        <h2>{{character.name}}</h2>
+    {% endfor %}
+
+{% else %}
+
+    <h1>There are no characters yet</h1>
+    <a href={% url 'add character' %}>add character</a>
+
+{% endif %}
+
+{% endblock content %}
