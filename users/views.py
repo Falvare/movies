@@ -12,7 +12,7 @@ def register(requests):
     else:
         form = RegistrationForm()
     
-    return render('users/register.html', context={'form':form})
+    return render(requests, 'users/register.html', context={'form':form})
 
 class Login(LoginView):
     template_name = 'users/login.html'
