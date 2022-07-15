@@ -74,3 +74,14 @@ def movieDetails(requests, pk):
 def characterList(requests):
     characters = Character.objects.all 
     return render(requests, 'movies/characters.html', context={'characters':characters})
+
+def genreMovies(requests, pk):
+    genre = Genre.objects.get(pk=pk)
+    genre_movies = Movie.objects.filter(genre=pk)
+
+    context = {
+        'genre':genre,
+        'movies':genre_movies
+    }
+
+    return render(requests, 'movies/genre_details.html', context=context)

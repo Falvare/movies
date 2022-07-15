@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import addGenre, addCharacter, addMovie, genreList, characterList, movieList, movieDetails
+from .views import addGenre, addCharacter, addMovie, genreList, characterList, movieList, movieDetails, genreMovies
 
 urlpatterns = [
     path('add-genre/', addGenre, name='add genre'),
     path('add-movie/', addMovie, name='add movie'),
     path('genres/', genreList, name='genres'),
+    path('genre/<int:pk>', genreMovies, name='genre details'),
     path('', movieList, name='movies'),
     path('movies/', movieList, name='movies'),
     path('movie-details/<int:pk>/', movieDetails, name='movie details'),
