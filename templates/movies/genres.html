@@ -4,14 +4,28 @@
 
 {% block content %}
 
-{% if genres %}
-    {% for genre in genres %}
-        <h1>{{genre}}</h1>
-        <a href={% url 'genre details' genre.id %}>View Movies</a>
-    {% endfor %}
-{% else %}
-    <h1>There are no genres yet</h1>
-    <a href={% url 'add genre' %}>Add movie</a>
-{% endif %}
+<div class="container" style="text-align: center">
+
+    <a href={% url 'add genre' %}>Add Genre</a>
+
+    {% if genres %}
+
+        <div class="container" style="text-align:center">
+            <div class="row" style="margin:5px">
+                {% for genre in genres %}
+                    <div class="col-4" style="padding:5%">
+                        <h1>{{genre}}</h1>
+                        <a href={% url 'genre details' genre.id %}>View Movies</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% else %}
+        <h1>There are no genres yet</h1>
+        <a href={% url 'add genre' %}>Add movie</a>
+    {% endif %}
+
+</div>
 
 {% endblock content %}

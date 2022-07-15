@@ -1,20 +1,28 @@
-{% extends 'index.html' %}
+{% extends "index.html" %}
 
 {% block title %}  {% endblock title %}
 
 {% block content %}
 
-<a href={% url 'add movie' %}>Add movie</a>
-
-{% if movies %}
-    {% for movie in movies %}
-        <h1>{{movie.title}}</h1>
-        <a href={% url 'movie details' movie.id %}>View details</a>
-    {% endfor %}
-{% else %}
-    <h1>There are no movies yet</h1>
+<div class="container" style="text-align:center">
     <a href={% url 'add movie' %}>Add movie</a>
-{% endif %}
+    {% if movies %}
+        <div class="container" style="text-align:center">
+            <div class="row" style="margin:5px">
+                {% for movie in movies %}
+                    <div class="col-4" style="padding:5%">
+                        <h1>{{movie.title}}</h1>
+                        <a href={% url "movie details" movie.id %}>View details</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <h1>There are no movies yet</h1>
+        <a href={% url "add movie" %}>Add movie</a>
+    {% endif %}
+</div>
+
 
 {% endblock content %}
 

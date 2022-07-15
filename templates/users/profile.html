@@ -3,15 +3,23 @@
 {% block title %} profile {% endblock title %}
 
 {% block content %}
+<div class="container" style="text-align: center">
     <h1>{{user.username}}</h1>
     <h1>{{user.first_name}} {{user.last_name}}</h1>
     <hr>
     <h1>My movies</h1>
 
     {% if movies %}
-        {% for movie in movies %}
-            <h2>{{movie}}</h2>
-        {% endfor %}
+        <div class="container" style="text-align:center">
+            <div class="row" style="margin:5px">
+                {% for movie in movies %}
+                    <div class="col-4" style="padding:5%">
+                        <h1>{{movie}}</h1>
+                        <a href={% url 'movie details' movie.id %}>View Movie</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     {% else %}
         <h1>You don't have any movies yet</h1>
         <a href={% url 'add movie' %}>Add movie</a>
@@ -21,13 +29,21 @@
     <h1>My characters</h1>
 
     {% if characters %}
-        {% for character in characters %}
-            <h2>name: {{character}}</h2>
-            <h3>movie: {{character.movie}}</h3>
-        {% endfor %}
+        <div class="container" style="text-align:center">
+        <div class="row" style="margin:5px">
+            {% for character in characters %}
+                <div class="col-4" style="padding:5%">
+                    <h1>{{character.name}}</h1>
+                    movie: <a href={% url 'movie details' character.movie.id %}>{{character.movie}}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
     {% else %}
         <h1>You don't have any characters yet</h1>
         </h3>Characters you add to movies will apear here</h3>
     {% endif %}
+</div>
 {% endblock content %}
 

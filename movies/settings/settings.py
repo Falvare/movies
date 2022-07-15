@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'movies_app.apps.MoviesAppConfig',
     'users.apps.UsersConfig',
 ]
@@ -127,3 +129,7 @@ LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/users/profile'
 
 LOGOUT_REDIRECT_URL = '/users/login'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
