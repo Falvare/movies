@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{% if movies %}
+    {% for movie in movies %}
+        <h1>{{movie}}</h1>
+        <a href={% url 'movie details' movie.id %}>Movie Details</a>
+    {% endfor %}
+{% else %}
+
+{% endif %}
+
+{% endblock content %}
