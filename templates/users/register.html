@@ -2,12 +2,20 @@
 
 {% block title %} profile {% endblock title %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <form method=POST>
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Register">
-        <a href={% url 'login' %}>Login</a>
-    </form>
+
+    <div class="container" style="padding:10%">
+        <form method=POST>
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="Register">
+            <div>
+                <a href={% url 'login' %}>Login</a>
+            </div>
+        </form>
+    </div>
+
 {% endblock content %}
 
