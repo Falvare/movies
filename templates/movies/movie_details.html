@@ -4,25 +4,33 @@
 
 {% block content %}
 
-<h1>{{movie}}</h1>
-<h2>genre(s):</h2>
-{% for genre in movie.genre.all %}
-{{genre}}/
-{% endfor %}
-<hr>
-
-<h1>Characters:</h1>
-{% if characters %}
-
-    {% for character in characters %}
-        <h2>{{character.name}}</h2>
+<div class='container' style="text-align:center">
+    <h1>{{movie}}</h1>
+    <h2>genre(s):</h2>
+    {% for genre in movie.genre.all %}
+    {{genre}}/
     {% endfor %}
-
-{% else %}
-
-    <h1>There are no characters yet</h1>
+    <hr>
+    <h1>Characters:</h1>
     <a href={% url 'add character' movie.id %}>add character</a>
+    {% if characters %}
 
-{% endif %}
+        <div class="container" style="text-align:center">
+            <div class="row" style="margin:5px">
+                {% for character in characters %}
+                    <div class="col-4" style="padding:5%">
+                        <h1>{{character.name}}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% else %}
+
+        <h1>There are no characters yet</h1>
+        <a href={% url 'add character' movie.id %}>add character</a>
+
+    {% endif %}
+</div>
 
 {% endblock content %}
