@@ -38,12 +38,13 @@ def addMovie(requests):
     return render(requests, 'movies/add_genre.html', context={'form':form})
 
 @login_required
-def addCharacter(requests):
+def addCharacter(requests, pk):
     if requests.method == 'POST':
         form = CharacterForm(requests.POST)
         if form.is_valid():
             character = form.save(commit=False)
             character.added_by = requests.user
+            character.movie = Movie.objects.get(pk=pk)
             character.save()
             return redirect('/characters')
     else:

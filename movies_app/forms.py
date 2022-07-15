@@ -23,5 +23,5 @@ class MovieForm(ModelForm):
 class CharacterForm(ModelForm):
     class Meta:
         model = Character
-        fields = ['name', 'movie' ]
+        fields = ['name' ]
 

@@ -22,11 +22,12 @@
 
     {% if characters %}
         {% for character in characters %}
-            <h2>{{character}}</h2>
+            <h2>name: {{character}}</h2>
+            <h3>movie: {{character.movie}}</h3>
         {% endfor %}
     {% else %}
         <h1>You don't have any characters yet</h1>
-        <a href={% url 'add character' %}>Add character</a>
+        </h3>Characters you add to movies will apear here</h3>
     {% endif %}
 {% endblock content %}
 
