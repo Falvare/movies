@@ -7,7 +7,7 @@
 {% if characters %}
     {% for character in characters %}
         <h1>{{character.name}}</h1>
-        <h2>{{character.movie}}</h2>
+        <h2><a href={% url 'movie details' character.movie.id %}>{{character.movie}}</a></h2>
     {% endfor %}
 {% else %}
     <h1>There are no characters yet</h1>
