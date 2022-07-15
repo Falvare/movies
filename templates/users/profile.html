@@ -16,6 +16,9 @@
                     <div class="col-4" style="padding:5%">
                         <h1>{{movie}}</h1>
                         <a href={% url 'movie details' movie.id %}>View Movie</a>
+                        <div>
+                            <a href={% url 'delete movie' movie.id %}>Delete Movie</a>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
@@ -35,6 +38,9 @@
                 <div class="col-4" style="padding:5%">
                     <h1>{{character.name}}</h1>
                     movie: <a href={% url 'movie details' character.movie.id %}>{{character.movie}}</a>
+                    <div>
+                        <a href={% url 'delete character' character.id %}>Delete Character</a>
+                    </div>
                 </div>
             {% endfor %}
         </div>

@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}  {% endblock title %}
+
+{% block content %}
+
+<div class="container" style="padding:5%">
+    <form method=POST>
+        {% csrf_token %}
+        <h1>Are you sure you want to delete the movie '{{movie}}'?</h1>
+        <h3>Doing so will delete all the characters associated with this movie</h3>
+        <input type="submit" value="submit">
+    </form>
+</div>
+
+{% endblock content %}
+
