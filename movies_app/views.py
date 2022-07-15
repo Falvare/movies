@@ -1,4 +1,3 @@
-from multiprocessing import context
 from django.shortcuts import render, redirect
 from .forms import GenreForm, MovieForm, CharacterForm
 from .models import Character, Movie, Genre
@@ -35,7 +34,7 @@ def addMovie(requests):
     else:
         form = MovieForm()
 
-    return render(requests, 'movies/add_genre.html', context={'form':form})
+    return render(requests, 'movies/add_movie.html', context={'form':form})
 
 @login_required
 def addCharacter(requests, pk):
@@ -50,7 +49,7 @@ def addCharacter(requests, pk):
     else:
         form = CharacterForm()
 
-    return render(requests, 'movies/add_genre.html', context={'form':form})
+    return render(requests, 'movies/add_character.html', context={'form':form})
 
 def genreList(requests):
     genres = Genre.objects.all 
