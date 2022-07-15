@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import GenreForm, MovieForm, CharacterForm
 from .models import Character, Movie, Genre
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 @login_required
@@ -84,3 +86,13 @@ def genreMovies(requests, pk):
     }
 
     return render(requests, 'movies/genre_details.html', context=context)
+
+class DeleteMovie(LoginRequiredMixin, DeleteView):
+    model = Movie
+    success_url = '/users/profile'
+    template_name = 'movies/delete_movie.html'
+
+class DeleteCharacter(LoginRequiredMixin, DeleteView):
+    model = Character
+    success_url = '/users/profile'
+    template_name = 'movies/delete_character.html'
