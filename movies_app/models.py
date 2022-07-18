@@ -9,8 +9,8 @@ class Genre(models.Model):
         return self.genre
 
 class Movie(models.Model):
-    title = models.CharField(max_length=20, unique=True)
-    genre = models.ManyToManyField(Genre)
+    title = models.CharField(max_length=40, unique=True)
+    genre = models.ManyToManyField(Genre, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
